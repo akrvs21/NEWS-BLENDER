@@ -82,39 +82,39 @@ Currently app provide three type of news: <br>
 
         <h2>Design</h2>
         <h3>UI design</h3>
-        <img src="main_page.png" alt="Main page of News Blender">
-        <img src="main_page_btn.png" alt="Main page view showing buttons in News Blender">
-        <img src="switch_finance_news.png" alt="Switching news view topic in News Blender">
-        <img src="article.png" alt="Article page view in News Blender">
-        <img src="share.png" alt="Share view in News Blender">
-        <img src="search.png" alt="Search view in News Blender">
+        <img src="img/main_page.png" alt="Main page of News Blender">
+        <img src="img/main_page_btn.png" alt="Main page view showing buttons in News Blender">
+        <img src="img/switch_finance_news.png" alt="Switching news view topic in News Blender">
+        <img src="img/article.png" alt="Article page view in News Blender">
+        <img src="img/share.png" alt="Share view in News Blender">
+        <img src="img/search.png" alt="Search view in News Blender">
 
         <h3>Code explanation</h3>
         <div>
             First add all the dependencies that we need for this project <br>
-           <img src="dependencies.png" alt="adding dependencies"> <br>
+           <img src="img/dependencies.png" alt="adding dependencies"> <br>
            And of course add the internet permission in AndroidManifest.xml <br>
-           <img src="int_perm.png" alt="internet permission"> <br>
+           <img src="img/int_perm.png" alt="internet permission"> <br>
             To get a news i use <a href="https://newsapi.org/">newsapi</a> website. Just need to register and get your private API key. 
             I used Retrofit, a library that makes it pretty easy to send and retrieve data from a webservice. Is type-safe REST client 
             for Android and Java which aims to make it easier to consume RESTful web services. <br>
             <br>
             Next is to create data models to parse our sample JSON data with following structure. 
-            <img src="api.png" alt=""> <br>
+            <img src="img/api.png" alt=""> <br>
             In total have 3 Models: <br>
-            <img src="newsjava.png" alt=""> <br>
-            <img src="articlejava.png" alt=""> <br>
-            <img src="sourcejava.png" alt=""> <br>
+            <img src="img/newsjava.png" alt=""> <br>
+            <img src="img/articlejava.png" alt=""> <br>
+            <img src="img/sourcejava.png" alt=""> <br>
 
             In order to issue the network request to a REST API with REtrofit, we need to create an instance using Retrofit.Builder class 
             and configureit with a base URL. In class <B>ApiClient</B> we have BASE_URL, this is the basic URL of our API where we will make a call.
             <br>
-            <img src="api_client.png" alt="">
+            <img src="img/api_client.png" alt="">
             <br>
             In ApiInterface file, The endpoints are defined inside of an interface using special retrofit annotations to encode details about the 
             parameters and request method. <br>
-            <img src="api_interface.png" alt=""> <br>
-            <img src="newsapi.png" alt=""> <br>
+            <img src="img/api_interface.png" alt=""> <br>
+            <img src="img/newsapi.png" alt=""> <br>
             Here when we requesting a list of news we get a specific news due to our request, in this case about bitcoin, 
             and in the second GET function we are retrieving from all source news when we search by some keyword. <br>
             In MainActivity file have enqueue() function, this function asynchronously sends the request and notifies the app with a callback 
@@ -123,13 +123,13 @@ Currently app provide three type of news: <br>
             <B>onResponse</B> and <B>onFailure()</B> <br>
             Then we need an Adapter for binding data with RecycleView. <br>
             Then i implemented custom Floating Action Button to switch between the news articles, here i demonstrate only important code snippet for that <br>
-            <img src="fab.png" alt="">
+            <img src="img/fab.png" alt="">
             <br>
             This function resides within <B>onCreate()</B> method body. <br>
             And i also implemented a quick tutorial for a new users, basically using flag it detects whether the app launched for the first time, if yes, it starts the tutorial.
             For that i used <a href="https://github.com/KeepSafe/TapTargetView">this library</a> to implement that. <br>
             This piece of code responsible for that: <br>
-            <img src="tutorial.png" alt="">
+            <img src="img/tutorial.png" alt="">
 
 
             
