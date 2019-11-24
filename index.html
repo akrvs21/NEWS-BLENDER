@@ -2,6 +2,9 @@
 <html>
     <head>
         <style>
+            
+
+
         .about {
             color: #7a7c7f;
              font-size: 29px;
@@ -20,10 +23,16 @@
             color: #111111;
             font-size: 25px;
             font-family: "Libre Baskerville", serif;
-            display: list-item;          /* This has to be "list-item"                                               */
-            list-style-type: disc;       /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type     */
-            list-style-position: inside;
+            background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
 
+        }
+
+        .table {
+            margin: 0 auto;
         }
 
         h2,h3 { color: #111111;
@@ -43,28 +52,29 @@
         <h2>1.About</h2>
         <div class="about">
 App name: News Blender <br>
-Goal and Vision: 21st century is the era of information and technologies. The information is such a valueble and powerfull
+Goal and Vision: 21st century is the era of information and technologies. The information is such a valuable and powerful
 tool that every man in power will use it and manipulate it. There is one statement for that: "Who owns information owns 
-the world". The recent and very similar example of these words are happend in 2016, USA presedent election period, we saw
-how the manipuated and compromated information were used very accurately, in other words FAKE NEWS, that influenced the 
-election result and let the whole world to meet the new thread of 21st century, FAKE NEWS. The other side of valueble 
-information is the value that it gives us, every tech professional, or other industry professional, have to know the
-latest news from their own field to be compatible individuals to stay tuned to the latest and trending technologies 
-(here i referer to and emphisize tech industry because it's my field and this app is mostly about tech news). Or it can be 
-some hobbies or that people interested with and want to catch up with the latest updates. <br>
-So the goal is to create an app that fulfill the requirenments of the modern human. With this app  users are able
-to View and Share the fresh, hot breaking news from all over the world. <br>
+the world". The recent example of these words were happened in 2016, USA president election period, we saw
+how the manipulated and compromised information were used very accurately, in other words <B>FAKE NEWS</B>, that influenced the 
+election result. In this example we are able to see how the filtered information can control people mind. Another thing that modern human 
+needs is to be informed of everything that about this person, it can be his professional news, or some hobbies or sport. For example,
+news that are related to someone's work are very important for a person to be compatible professional in his field, as a programmer 
+i know that technology changes rapidly everyday, in order to stay tuned, the IT man have to regularly watch the news to see some changes,
+and it can be applied to any field, todays world changing so fast, so people need some mobile, fresh, valuable information source.So with
+ this app  users are able to View and Share the fresh, hot breaking news from all over the world. <br>
 Currently app provide three type of news: <br>
  (1) Bitcoin and blockchain related news <br>
  (2) Apple products related news <br>
  (3) Finance and Stock market related news <br>
  <br>
+ <br>
+ <p>Watch the Demo: </p> <br>
  <video width = "350" src="demo.mp4" controls></video>
         </div>
-
+<br> <br>
         <h2>2.Product Backlog</h2>
 
-        <table border = "3">
+        <table class = "table" border = "3">
             <tr>
                 <td>ID</td>
                 <td>Name</td>
@@ -104,7 +114,7 @@ Currently app provide three type of news: <br>
                 <td>2</td>
                 <td>Be able to share news on social media</td>
             </tr>
-        </table>
+        </table> <br> <br>
         <h2>3.Requirenments specification</h2>
         <h3>Use case Diagram</h3>
         <img src="uml_news_blender.png" alt="UML">
@@ -121,7 +131,7 @@ Currently app provide three type of news: <br>
         <img class="screen" src="article.png" alt="Article page view in News Blender">
         <img class="screen" src="share.png" alt="Share view in News Blender">
         <img class="screen" src="search.png" alt="Search view in News Blender">
-     
+        <br> <br> <br>
         <h3>Code explanation</h3> 
         <div class="explain">
             First add all the dependencies that we need for this project <br> <br>
