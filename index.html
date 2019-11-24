@@ -1,5 +1,45 @@
-layout: default
-<body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        .about {
+            color: #7a7c7f;
+             font-size: 29px;
+              font-family: "Libre Baskerville", serif; 
+            line-height: 45px;
+             text-align: center; 
+            text-shadow: 0 1px 1px #fff; 
+            padding-top: 20px;
+        }
+        
+        .screen {
+            width:350px;
+        }
+
+        .explain {
+            color: #111111;
+            font-size: 25px;
+            font-family: "Libre Baskerville", serif;
+            display: list-item;          /* This has to be "list-item"                                               */
+            list-style-type: disc;       /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type     */
+            list-style-position: inside;
+
+        }
+
+        h2,h3 { color: #111111;
+        font-family: 'Raleway',sans-serif; 
+        font-size: 30px; 
+        font-weight: 800; 
+        line-height: 36px;
+        margin: 0 0 24px;
+        text-align: center; 
+        }
+        </style>
+
+    </head>
+
+    <body>
+
         <h2>1.About</h2>
         <div class="about">
 App name: News Blender <br>
@@ -18,6 +58,8 @@ Currently app provide three type of news: <br>
  (1) Bitcoin and blockchain related news <br>
  (2) Apple products related news <br>
  (3) Finance and Stock market related news <br>
+ <br>
+ <video width = "350" src="demo.mp4" controls></video>
         </div>
 
         <h2>2.Product Backlog</h2>
@@ -67,64 +109,70 @@ Currently app provide three type of news: <br>
         <h3>Use case Diagram</h3>
         <img src="uml_news_blender.png" alt="UML">
 
-        <p>Need to fill !!</p>
-
-        <h2>Design</h2>
+        <h2>4.Design</h2>
         <h3>UI design</h3>
-        <img src="img/main_page.png" alt="Main page of News Blender">
-        <img src="img/main_page_btn.png" alt="Main page view showing buttons in News Blender">
-        <img src="img/switch_finance_news.png" alt="Switching news view topic in News Blender">
-        <img src="img/article.png" alt="Article page view in News Blender">
-        <img src="img/share.png" alt="Share view in News Blender">
-        <img src="img/search.png" alt="Search view in News Blender">
-
-        <h3>Code explanation</h3>
-        <div>
-            First add all the dependencies that we need for this project <br>
-           <img src="img/dependencies.png" alt="adding dependencies"> <br>
-           And of course add the internet permission in AndroidManifest.xml <br>
-           <img src="img/int_perm.png" alt="internet permission"> <br>
+        <img class="screen" src="t1.png" alt="">
+        <img class="screen" src="t2.png" alt="">
+        <img class="screen" src="t3.png" alt="">
+        <img class="screen" src="t4.png" alt="">
+        <img class="screen" src="main_page.png" alt="Main page of News Blender">
+        <img class="screen" src="main_page_btn.png" alt="Main page view showing buttons in News Blender">
+        <img class="screen" src="switch_finance_news.png" alt="Switching news view topic in News Blender">
+        <img class="screen" src="article.png" alt="Article page view in News Blender">
+        <img class="screen" src="share.png" alt="Share view in News Blender">
+        <img class="screen" src="search.png" alt="Search view in News Blender">
+     
+        <h3>Code explanation</h3> 
+        <div class="explain">
+            First add all the dependencies that we need for this project <br> <br>
+           <img src="dependencies.png" alt="adding dependencies"> <br> <br>
+           And of course add the internet permission in AndroidManifest.xml <br><br>
+           <img src="int_perm.png" alt="internet permission"> <br> <br>
             To get a news i use <a href="https://newsapi.org/">newsapi</a> website. Just need to register and get your private API key. 
             I used Retrofit, a library that makes it pretty easy to send and retrieve data from a webservice. Is type-safe REST client 
-            for Android and Java which aims to make it easier to consume RESTful web services. <br>
+            for Android and Java which aims to make it easier to consume RESTful web services. <br><br>
             <br>
             Next is to create data models to parse our sample JSON data with following structure. 
-            <img src="img/api.png" alt=""> <br>
-            In total have 3 Models: <br>
-            <img src="img/newsjava.png" alt=""> <br>
-            <img src="img/articlejava.png" alt=""> <br>
-            <img src="img/sourcejava.png" alt=""> <br>
+            <img src="api.png" alt=""> <br> <br>
+            In total have 3 Models: <br><br>
+            <img src="newsjava.png" alt=""> <br> <br>
+            <img src="articlejava.png" alt=""> <br> <br>
+            <img src="sourcejava.png" alt=""> <br> <br>
 
             In order to issue the network request to a REST API with REtrofit, we need to create an instance using Retrofit.Builder class 
             and configureit with a base URL. In class <B>ApiClient</B> we have BASE_URL, this is the basic URL of our API where we will make a call.
-            <br>
-            <img src="img/api_client.png" alt="">
+            <br><br>
+            <img src="api_client.png" alt=""> <br>
             <br>
             In ApiInterface file, The endpoints are defined inside of an interface using special retrofit annotations to encode details about the 
-            parameters and request method. <br>
-            <img src="img/api_interface.png" alt=""> <br>
-            <img src="img/newsapi.png" alt=""> <br>
+            parameters and request method. <br><br>
+            <img src="api_interface.png" alt=""> <br> <br>
+            <img src="newsapi.png" alt=""> <br> <br>
             Here when we requesting a list of news we get a specific news due to our request, in this case about bitcoin, 
             and in the second GET function we are retrieving from all source news when we search by some keyword. <br>
             In MainActivity file have enqueue() function, this function asynchronously sends the request and notifies the app with a callback 
             when a response comes back. Since this request is asynchronous, Retrofit handles it on a background thread so that the 
             main UI thread isn't blocked or interfered with. To use the enqueue() function need to implement two other functions: <br>
-            <B>onResponse</B> and <B>onFailure()</B> <br>
-            Then we need an Adapter for binding data with RecycleView. <br>
-            Then i implemented custom Floating Action Button to switch between the news articles, here i demonstrate only important code snippet for that <br>
-            <img src="img/fab.png" alt="">
+            <B>onResponse</B> and <B>onFailure()</B> <br><br>
+            Then we need an Adapter for binding data with RecycleView. <br><br>
+            Then i implemented custom Floating Action Button to switch between the news articles, here i demonstrate only important code snippet for that <br><br>
+            <img src="fab.png" alt=""> <br>
             <br>
             This function resides within <B>onCreate()</B> method body. <br>
             And i also implemented a quick tutorial for a new users, basically using flag it detects whether the app launched for the first time, if yes, it starts the tutorial.
             For that i used <a href="https://github.com/KeepSafe/TapTargetView">this library</a> to implement that. <br>
-            This piece of code responsible for that: <br>
-            <img src="img/tutorial.png" alt="">
+            This piece of code responsible for that: <br> <br>
+            <img src="tutorial.png" alt=""> <br> <br>
 
-
-            
+            Before running the app, please register in <a href="https://newsapi.org/">newsapi website</a> and get your own private API key 
+            and paste it in these 3 files:  <br> <br>
+            <img src="path.png" alt=""> <br> <br> 
+            <img src="paste_api.png" alt=""> <br> <br>
+            Also need stable internet connection and VPN in some cases.<br> <br>
 
         </div>
 
 
 
     </body>
+</html>
